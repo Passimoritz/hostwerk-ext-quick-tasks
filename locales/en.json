@@ -1,0 +1,16 @@
+{
+  "title": "Quick tasks",
+  "sub": "Run tasks with one button – Hostwerk asks first. ☆ pins.",
+  "run": "Run",
+  "started": "Task started",
+  "pin": "Pin",
+  "unpin": "Unpin",
+  "state.running": "running",
+  "state.error": "last run failed",
+  "state.ok": "last run ok",
+  "state.new": "never ran",
+  "empty": "No tasks yet",
+  "emptyHint": "Create one in Hostwerk under “Tasks” – e.g. a backup or a report.",
+  "emptyShort": "No tasks yet.",
+  "widgetTitle": "Quick start"
+}

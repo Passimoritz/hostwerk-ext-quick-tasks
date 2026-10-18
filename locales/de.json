@@ -1,0 +1,16 @@
+{
+  "title": "Schnell-Aufgaben",
+  "sub": "Aufgaben per Knopf starten – Hostwerk fragt vorher nach. ☆ heftet an.",
+  "run": "Starten",
+  "started": "Aufgabe gestartet",
+  "pin": "Anheften",
+  "unpin": "Lösen",
+  "state.running": "läuft",
+  "state.error": "zuletzt Fehler",
+  "state.ok": "zuletzt ok",
+  "state.new": "noch nie gelaufen",
+  "empty": "Noch keine Aufgaben",
+  "emptyHint": "Lege in Hostwerk unter „Aufgaben“ eine an – z. B. ein Backup oder einen Bericht.",
+  "emptyShort": "Noch keine Aufgaben.",
+  "widgetTitle": "Schnell starten"
+}

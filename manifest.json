@@ -1,0 +1,40 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Passimoritz/hostwerk-public/main/sdk/manifest.schema.json",
+  "id": "quick-tasks",
+  "color": "#a855f7",
+  "name": {
+    "de": "Schnell-Aufgaben",
+    "en": "Quick tasks"
+  },
+  "description": {
+    "de": "Deine Aufgaben als große Knöpfe – ein Klick startet ein Backup, einen Bericht oder ein Skript (Hostwerk fragt vorher). Lieblinge anheften, auch als Kachel.",
+    "en": "Your tasks as big buttons – one click runs a backup, a report or a script (Hostwerk asks first). Pin favourites, also as a tile."
+  },
+  "permissions": [
+    "read:tasks",
+    "run:tasks",
+    "storage"
+  ],
+  "page": {
+    "title": {
+      "de": "Schnell-Aufgaben",
+      "en": "Quick tasks"
+    },
+    "icon": "zap",
+    "file": "page/index.html"
+  },
+  "widget": {
+    "title": {
+      "de": "Schnell starten",
+      "en": "Quick start"
+    },
+    "file": "widget/index.html",
+    "size": "third"
+  },
+  "version": "1.0.0",
+  "author": "Hostwerk",
+  "homepage": "https://github.com/Passimoritz/hostwerk-ext-quick-tasks",
+  "license": "MIT",
+  "icon": "icon.svg",
+  "hostwerk": ">=2.9.0"
+}
