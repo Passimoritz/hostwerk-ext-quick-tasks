@@ -2,14 +2,14 @@
 const { html, t } = Hostwerk;
 const Q = QuickTasks;
 let pinned = [];
-const BADGE = { running: 'hw-warn', error: 'hw-err', ok: 'hw-ok', new: '' };
+const BADGE = { running: 'warn', error: 'err', ok: 'ok', new: '' };
 async function load() {
   const { list } = await Hostwerk.get('/tasks');
-  if (!list.length) { Hostwerk.render('#grid', html`<div class="hw-empty"><b>${t('empty')}</b>${t('emptyHint')}</div>`); return; }
-  Hostwerk.render('#grid', html`${Q.pick(list, pinned).map((x) => html`<div class="hw-card task ${Q.state(x)}">
-    <div class="hw-row"><b class="hw-grow hw-ellipsis">${x.name}</b><button class="hw-btn hw-sm hw-ghost pin" data-pin="${x.id}" title="${t(x.pinned ? 'unpin' : 'pin')}">${x.pinned ? '★' : '☆'}</button></div>
-    <div class="hw-tiny hw-muted">${x.actionLabel || ''}</div>
-    <div class="hw-row" style="margin-top:10px"><span class="hw-badge ${BADGE[Q.state(x)]}">${t('state.' + Q.state(x))}</span><span class="hw-grow"></span><button class="hw-btn hw-primary" data-run="${x.id}" ${Q.state(x) === 'running' ? 'disabled' : ''}>${t('run')}</button></div>
+  if (!list.length) { Hostwerk.render('#grid', html`<div class="empty"><b>${t('empty')}</b>${t('emptyHint')}</div>`); return; }
+  Hostwerk.render('#grid', html`${Q.pick(list, pinned).map((x) => html`<div class="card card-pad task ${Q.state(x)}">
+    <div class="row"><b class="grow ellipsis">${x.name}</b><button class="btn sm ghost pin" data-pin="${x.id}" title="${t(x.pinned ? 'unpin' : 'pin')}">${x.pinned ? '★' : '☆'}</button></div>
+    <div class="tiny muted">${x.actionLabel || ''}</div>
+    <div class="row" style="margin-top:10px"><span class="badge ${BADGE[Q.state(x)]}">${t('state.' + Q.state(x))}</span><span class="grow"></span><button class="btn primary" data-run="${x.id}" ${Q.state(x) === 'running' ? 'disabled' : ''}>${t('run')}</button></div>
   </div>`)}`);
 }
 document.addEventListener('click', async (e) => {

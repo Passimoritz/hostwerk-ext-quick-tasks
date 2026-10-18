@@ -6,14 +6,13 @@
   <script src="/ext-sdk.js"></script>
   <style>
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin-top: 14px; }
-    .task.error { border-color: var(--hw-err); }
-    .task.running { border-color: var(--hw-warn); }
+    .task.error { border-color: var(--err); }
+    .task.running { border-color: var(--warn); }
     .pin { min-width: 32px; }
   </style>
 </head>
 <body>
-  <h1 data-i18n="title"></h1>
-  <p class="hw-sub" data-i18n="sub"></p>
+  <p class="muted" data-i18n="sub"></p>
   <div class="grid" id="grid"><div class="hw-skeleton" style="height:110px"></div></div>
   <script src="lib.js"></script>
   <script src="app.js"></script>

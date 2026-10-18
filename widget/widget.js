@@ -4,7 +4,7 @@ async function load() {
   const { list } = await Hostwerk.get('/tasks');
   const pinned = (await Hostwerk.storage.get('pinned')) || [];
   const xs = QuickTasks.pick(list, pinned, 4);
-  Hostwerk.render('#btns', xs.length ? html`${xs.map((x) => html`<button class="hw-btn hw-sm" data-run="${x.id}" title="${x.name}"><span class="hw-ellipsis">${x.name}</span></button>`)}` : html`<div class="hw-muted hw-small">${t('emptyShort')}</div>`);
+  Hostwerk.render('#btns', xs.length ? html`${xs.map((x) => html`<button class="btn sm" data-run="${x.id}" title="${x.name}"><span class="ellipsis">${x.name}</span></button>`)}` : html`<div class="muted small">${t('emptyShort')}</div>`);
 }
 document.addEventListener('click', async (e) => {
   const b = e.target.closest('button[data-run]'); if (!b) return;
