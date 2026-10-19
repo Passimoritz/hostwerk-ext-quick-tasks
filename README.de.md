@@ -1,3 +1,5 @@
+![Schnell-Aufgaben](banner.svg)
+
 # Schnell-Aufgaben
 
 Deine Aufgaben als große Knöpfe – ein Klick startet ein Backup, einen Bericht oder ein Skript (Hostwerk fragt vorher). Lieblinge anheften, auch als Kachel.

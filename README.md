@@ -1,3 +1,5 @@
+![Quick tasks](banner.svg)
+
 # Quick tasks
 
 Your tasks as big buttons – one click runs a backup, a report or a script (Hostwerk asks first). Pin favourites, also as a tile.
