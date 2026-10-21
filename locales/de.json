@@ -31,5 +31,6 @@
   "emptyShort": "Noch keine Aufgaben.",
   "widgetTitle": "Schnell starten",
   "loadError": "Aufgaben konnten nicht geladen werden",
-  "retry": "Erneut versuchen"
+  "retry": "Erneut versuchen",
+  "taskGone": "Diese Aufgabe gibt es nicht mehr – sie wurde in Hostwerk gelöscht."
 }

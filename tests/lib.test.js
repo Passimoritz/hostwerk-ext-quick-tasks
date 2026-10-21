@@ -46,3 +46,37 @@ test('Ablehnung und Zeitüberschreitung erkennen', () => {
   assert.ok(Q.stillRunning(new Error('Hostwerk did not answer')));
   assert.ok(!Q.declined(new Error('Skript nicht gefunden')));
 });
+
+test('angeheftete Aufgaben im Menü „Neu“: Reihenfolge der Pins, höchstens 6, gelöschte fallen weg, Aktion → Aufgabe', () => {
+  const tasks = [...list, ...['e', 'f', 'g', 'h'].map((id) => ({ id, name: `Aufgabe ${id}` })), { id: 'BÖSE id', name: 'x' }];
+  const e = Q.newEntries(tasks, ['c', 'weg', 'a', 'BÖSE id']);
+  assert.deepStrictEqual(e.map((x) => x.id), ['t-c', 't-a']);
+  assert.deepStrictEqual(e[0].title, { de: 'Aufgabe „Cache leeren“ starten', en: 'Run task “Cache leeren”' });
+  assert.strictEqual(e[0].icon, 'zap');
+  assert.strictEqual(Q.newEntries(tasks, ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']).length, 6);
+  assert.deepStrictEqual(Q.newEntries(null, null), []);
+  assert.strictEqual(Q.taskOfAction({ id: 't-c' }), 'c');
+  assert.strictEqual(Q.taskOfAction({ id: 'run' }), null);
+  assert.strictEqual(Q.taskOfAction({ id: 't-' }), null);
+  assert.strictEqual(Q.taskOfAction(null), null);
+});
+
+test('Server-Teil: legt die Einträge beim Start und nach jedem Anheften fest; ohne setNewEntries (Hostwerk vor 3.0) nichts', () => {
+  const routes = {};
+  let pinned = ['d'];
+  const sets = [];
+  const host = { ctx: { scheduler: { list: () => list } }, router: { post: (p, fn) => { routes[p] = fn; } }, storage: { get: (k) => (k === 'pinned' ? pinned : undefined) }, log: () => {}, setNewEntries: (l) => { sets.push(l.map((x) => x.id)); return l.length; } };
+  const S = require('../server/index');
+  S.activate(host);
+  assert.deepStrictEqual(sets, [['t-d']]);
+  pinned = ['a', 'b'];
+  let out; routes['/quick-tasks/pins']({}, { json: (x) => { out = x; } });
+  assert.deepStrictEqual(out, { entries: 2, supported: true });
+  assert.deepStrictEqual(sets[1], ['t-a', 't-b']);
+  S.deactivate();
+  const old = { ...host, setNewEntries: undefined };
+  S.activate(old);
+  routes['/quick-tasks/pins']({}, { json: (x) => { out = x; } });
+  assert.deepStrictEqual(out, { entries: 0, supported: false });
+  S.deactivate();
+});

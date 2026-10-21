@@ -12,7 +12,7 @@ Eine offizielle Erweiterung für [Hostwerk](https://github.com/Passimoritz/hostw
 - Ergebnis direkt in der Karte: fertig oder fehlgeschlagen, Dauer, letzte Zeile der Ausgabe
 - Suche über alle Aufgaben – Enter startet den ersten Treffer
 - „Aufgabe starten …“ in der Schnellsuche, im Neu-Menü und per Tastenkürzel (Strg+Alt+Q, unter Einstellungen → Allgemein → Tastenkürzel änderbar)
-- Lieblinge anheften (★) – sie stehen vorn; gelöschte Aufgaben fallen von selbst heraus
+- Lieblinge anheften (★) – sie stehen vorn und ab Hostwerk 3.0 auch einzeln im Menü „Neu“ („Aufgabe „Backup“ starten“); gelöschte Aufgaben fallen von selbst heraus
 - Kachel für die Übersicht mit vier Knöpfen und ihrem Zustand
 - Fehlerzustand mit „Erneut versuchen“; Abfragen pausieren, solange die Seite nicht zu sehen ist
 - Steht in der Seitenleiste unter „Entwickeln“ direkt hinter „Aufgaben“; andere Erweiterungen dürfen Reiter ergänzen (`allowExtensions`)
@@ -26,6 +26,7 @@ In Hostwerk: **Apps → Erweiterungen → Marktplatz** → „Schnell-Aufgaben�
 - Aufgaben lesen
 - Aufgaben ausführen (mit Rückfrage)
 - Eigene Daten speichern (angeheftete Aufgaben)
+- Eigener Server-Teil („native“): legt die angehefteten Aufgaben ins Menü „Neu“
 
 Seiten laufen abgeschottet (eigener Ursprung, keine fremden Skripte); alles, was etwas ändert, fragt vorher nach.
 

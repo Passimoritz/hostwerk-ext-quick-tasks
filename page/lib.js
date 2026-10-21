@@ -48,5 +48,19 @@
   function declined(err) { return /declined|abgelehnt/i.test(String((err && err.message) || err || '')); }
   /** Brücke hat nicht rechtzeitig geantwortet – die Aufgabe läuft aber womöglich weiter. */
   function stillRunning(err) { return /did not answer|nicht geantwortet/i.test(String((err && err.message) || err || '')); }
-  return { matches, pick, state, togglePin, prune, lastLine, result, declined, stillRunning };
+  /**
+   * Angeheftete Aufgaben als Einträge im Menü „Neu“ (SDK 2.10, zur Laufzeit): je Aufgabe „Aufgabe „X“ starten“, in der
+   * Reihenfolge der Pins, höchstens 6 (mehr nimmt Hostwerk nicht). Die Seite bekommt sie als Aktion „t-<Aufgaben-ID>“.
+   */
+  const ENTRY = 't-';
+  function newEntries(list, pinned = []) {
+    const byId = new Map((list || []).filter((t) => t && t.id).map((t) => [String(t.id), t]));
+    return (pinned || []).map((id) => byId.get(String(id))).filter((t) => t && /^[a-z0-9-]{1,28}$/.test(String(t.id))).slice(0, 6).map((t) => {
+      const name = String(t.name || t.id).replace(/\s+/g, ' ').trim().slice(0, 60);
+      return { id: `${ENTRY}${t.id}`, title: { de: `Aufgabe „${name}“ starten`, en: `Run task “${name}”` }, description: { de: 'Angeheftete Schnell-Aufgabe', en: 'Pinned quick task' }, icon: 'zap' };
+    });
+  }
+  /** Aktion aus dem Menü „Neu“ → Aufgaben-ID (oder null, wenn es keine angeheftete Aufgabe ist). */
+  function taskOfAction(a) { const id = a && typeof a.id === 'string' && a.id.startsWith(ENTRY) ? a.id.slice(ENTRY.length) : ''; return id || null; }
+  return { matches, pick, state, togglePin, prune, lastLine, result, declined, stillRunning, newEntries, taskOfAction };
 }));

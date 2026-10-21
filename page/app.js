@@ -36,10 +36,13 @@ async function load() {
   tasks = Array.isArray(list) ? list : [];
   // In Hostwerk gelöschte Aufgaben nicht ewig angeheftet lassen
   const p = Q.prune(pinned, tasks);
-  if (p.changed) { pinned = p.pinned; Hostwerk.storage.set('pinned', pinned).catch(() => {}); }
+  if (p.changed) { pinned = p.pinned; Hostwerk.storage.set('pinned', pinned).then(syncNewMenu).catch(() => {}); }
   draw();
 }
 const reload = () => Live.guard(Hostwerk, '#grid', load);
+
+/** Angeheftete Aufgaben ins Menü „Neu“ (eigener Server-Teil, ab Hostwerk 3.0) – ohne ihn bleibt nur der feste Eintrag. */
+function syncNewMenu() { Hostwerk.backend('POST', '/quick-tasks/pins').catch(() => {}); }
 
 async function run(id) {
   const x = (tasks || []).find((y) => y.id === id);
@@ -64,7 +67,7 @@ document.addEventListener('click', async (e) => {
   if (pin) {
     pinned = Q.togglePin(pinned, pin.dataset.pin);
     draw();
-    try { await Hostwerk.storage.set('pinned', pinned); } catch (er) { Hostwerk.toast(er.message, { kind: 'error' }); }
+    try { await Hostwerk.storage.set('pinned', pinned); syncNewMenu(); } catch (er) { Hostwerk.toast(er.message, { kind: 'error' }); }
     return;
   }
   if (e.target.closest('[data-open-tasks]')) Hostwerk.navigate('/aufgaben');
@@ -82,7 +85,11 @@ search.addEventListener('keydown', (e) => {
 // ankommen (Startdaten und Ereignis) – „at“ unterscheidet sie.
 let lastAction = '';
 function onAction(a) {
-  if (!a || a.id !== 'run' || `${a.id}@${a.at}` === lastAction) return;
+  if (!a || `${a.id}@${a.at}` === lastAction) return;
+  // Angeheftete Aufgabe aus dem Menü „Neu“: direkt starten (Hostwerk fragt vorher)
+  const task = Q.taskOfAction(a);
+  if (task) { lastAction = `${a.id}@${a.at}`; if ((tasks || []).some((x) => x.id === task)) run(task); else Hostwerk.toast(t('taskGone'), { kind: 'error' }); return; }
+  if (a.id !== 'run') return;
   lastAction = `${a.id}@${a.at}`;
   search.focus(); search.select();
 }

@@ -31,5 +31,6 @@
   "emptyShort": "No tasks yet.",
   "widgetTitle": "Quick start",
   "loadError": "Could not load the tasks",
-  "retry": "Try again"
+  "retry": "Try again",
+  "taskGone": "This task no longer exists – it was deleted in Hostwerk."
 }

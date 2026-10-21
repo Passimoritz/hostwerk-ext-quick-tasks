@@ -12,7 +12,7 @@ An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension
 - The result right in the card: done or failed, duration, last line of the output
 - Search across all tasks – Enter runs the first match
 - “Run a task …” in the quick search, in the “New” menu and as a shortcut (Ctrl+Alt+Q, changeable under Settings → General → Shortcuts)
-- Pin favourites (★) – they come first; deleted tasks drop out by themselves
+- Pin favourites (★) – they come first, and from Hostwerk 3.0 each one is also in the “New” menu (“Run task “Backup””); deleted tasks drop out by themselves
 - Dashboard tile with four buttons and their state
 - Error state with “Try again”; polling pauses while the page is not visible
 - Sits in the sidebar under “Develop” right after “Tasks”; other extensions may add tabs (`allowExtensions`)
@@ -26,6 +26,7 @@ In Hostwerk: **Apps → Extensions → Marketplace** → “Quick tasks” → I
 - Read scheduled tasks
 - Run tasks (asks first)
 - Store own data (pinned tasks)
+- Own server part (“native”): puts the pinned tasks into the “New” menu
 
 Pages run isolated (own origin, no external scripts); anything that changes something asks you first.
 

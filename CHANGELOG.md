@@ -1,3 +1,7 @@
+## 1.4.0
+
+- Pinned tasks show up one by one in the “New” menu (“Run task “Backup””) – with Hostwerk 3.0 (SDK 2.10 `host.setNewEntries`); choosing one runs that task right away (Hostwerk asks first). Needs a small own server part, hence the permission “native”. / Angeheftete Aufgaben einzeln im Menü „Neu“ („Aufgabe „Backup“ starten“) – ab Hostwerk 3.0; ein Klick startet sie (mit Rückfrage). Dafür ein kleiner eigener Server-Teil, deshalb das Recht „native“.
+
 ## 1.3.0
 
 - Every task on the page (no limit of 12 any more) with a search; Enter runs the first match. / Alle Aufgaben auf der Seite (nicht mehr höchstens 12) mit Suche; Enter startet den ersten Treffer.
