@@ -9,9 +9,13 @@ Eine offizielle Erweiterung für [Hostwerk](https://github.com/Passimoritz/hostw
 ## Funktionen
 
 - Jede Aufgabe als großer Knopf – ein Klick startet sie (Hostwerk fragt vorher)
-- Letztes Ergebnis auf einen Blick (ok, Fehler, läuft)
-- Lieblinge anheften (★) – sie stehen vorn
-- Kachel für die Übersicht mit vier Knöpfen
+- Ergebnis direkt in der Karte: fertig oder fehlgeschlagen, Dauer, letzte Zeile der Ausgabe
+- Suche über alle Aufgaben – Enter startet den ersten Treffer
+- „Aufgabe starten …“ in der Schnellsuche, im Neu-Menü und per Tastenkürzel (Strg+Alt+Q, unter Einstellungen → Allgemein → Tastenkürzel änderbar)
+- Lieblinge anheften (★) – sie stehen vorn; gelöschte Aufgaben fallen von selbst heraus
+- Kachel für die Übersicht mit vier Knöpfen und ihrem Zustand
+- Fehlerzustand mit „Erneut versuchen“; Abfragen pausieren, solange die Seite nicht zu sehen ist
+- Steht in der Seitenleiste unter „Entwickeln“ direkt hinter „Aufgaben“; andere Erweiterungen dürfen Reiter ergänzen (`allowExtensions`)
 
 ## Installieren
 
@@ -32,6 +36,6 @@ node --test tests/*.test.js            # Tests der Logik
 node pfad/zu/hostwerk-public/sdk/check.js . --strict   # dieselbe Prüfung wie der Katalog
 ```
 
-Die Logik steckt in `page/lib.js` (ohne DOM, getestet), die Seite in `page/app.js`. Ein Tag `vX.Y.Z` passend zu `manifest.json` veröffentlicht ein Release; der Hostwerk-Katalog übernimmt es.
+Die Logik steckt in `page/lib.js` (ohne DOM, getestet), Abfragen und Fehlerzustand in `page/live.js` (ebenfalls getestet), die Seite in `page/app.js`. Das Release packt alles außer dem Repo-Werkzeug (`.github/`, `tests/`). Ein Tag `vX.Y.Z` passend zu `manifest.json` veröffentlicht ein Release; der Hostwerk-Katalog übernimmt es.
 
 English: [README.md](README.md) · Lizenz: MIT

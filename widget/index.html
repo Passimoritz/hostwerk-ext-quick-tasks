@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="/ext-sdk.js"></script>
   <style>
-    .btns { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px; }
+    .btns { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-1); margin-top: var(--sp-2); }
+    .btns .btn[data-state="error"] { border-color: var(--err); }
+    .btns .btn[data-state="running"] { border-color: var(--warn); }
   </style>
 </head>
 <body>
   <div class="muted small" data-i18n="widgetTitle"></div>
-  <div class="btns" id="btns"></div>
+  <div class="btns" id="btns"><div class="hw-skeleton" style="height:28px"></div><div class="hw-skeleton" style="height:28px"></div></div>
+  <script src="../page/live.js"></script>
   <script src="../page/lib.js"></script>
   <script src="widget.js"></script>
 </body>

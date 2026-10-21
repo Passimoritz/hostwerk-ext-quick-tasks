@@ -21,3 +21,28 @@ test('Anheften umschalten', () => {
   assert.deepStrictEqual(Q.togglePin(['a'], 'b'), ['a', 'b']);
   assert.deepStrictEqual(Q.togglePin(['a', 'b'], 'a'), ['b']);
 });
+test('ohne Grenze alle Aufgaben, Suche über Name und Aktion', () => {
+  const many = Array.from({ length: 20 }, (_, i) => ({ id: `t${i}`, name: `Aufgabe ${i}` }));
+  assert.strictEqual(Q.pick(many, []).length, 20, 'die Seite zeigt alle, nicht nur 12');
+  const xs = [{ id: 'a', name: 'Backup Shop', actionLabel: 'Datenbank sichern' }, { id: 'b', name: 'Bericht', actionLabel: 'Adresse aufrufen', action: { target: 'https://example.org/cron' } }];
+  assert.deepStrictEqual(Q.pick(xs, [], Infinity, 'shop').map((x) => x.id), ['a']);
+  assert.deepStrictEqual(Q.pick(xs, [], Infinity, 'DATENBANK sichern').map((x) => x.id), ['a']);
+  assert.deepStrictEqual(Q.pick(xs, [], Infinity, 'cron').map((x) => x.id), ['b'], 'auch das Ziel zählt');
+  assert.deepStrictEqual(Q.pick(xs, [], Infinity, 'gibtsnicht'), []);
+});
+test('gelöschte Aufgaben fallen aus den Angehefteten', () => {
+  assert.deepStrictEqual(Q.prune(['a', 'weg', 'c'], list), { pinned: ['a', 'c'], changed: true });
+  assert.deepStrictEqual(Q.prune(['a'], list), { pinned: ['a'], changed: false });
+  assert.deepStrictEqual(Q.prune(undefined, list), { pinned: [], changed: false });
+});
+test('Ergebnis eines Laufs: Zustand, Dauer, letzte Zeile', () => {
+  assert.deepStrictEqual(Q.result({ status: 'ok', ms: 1234, output: 'Start\nSicherung: 3 Dateien\n\n', at: 5 }), { status: 'ok', ms: 1234, line: 'Sicherung: 3 Dateien', at: 5 });
+  assert.strictEqual(Q.result({ status: 'error', output: 'x' }).status, 'error');
+  assert.strictEqual(Q.lastLine('a'.repeat(300)).length, 158);
+  assert.strictEqual(Q.result(null), null);
+});
+test('Ablehnung und Zeitüberschreitung erkennen', () => {
+  assert.ok(Q.declined(new Error('Declined'))); assert.ok(Q.declined('Abgelehnt'));
+  assert.ok(Q.stillRunning(new Error('Hostwerk did not answer')));
+  assert.ok(!Q.declined(new Error('Skript nicht gefunden')));
+});

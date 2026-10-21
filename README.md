@@ -9,9 +9,13 @@ An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension
 ## Features
 
 - Every task as a big button – one click runs it (Hostwerk asks first)
-- Last result at a glance (ok, failed, running)
-- Pin favourites (★) – they come first
-- Dashboard tile with four buttons
+- The result right in the card: done or failed, duration, last line of the output
+- Search across all tasks – Enter runs the first match
+- “Run a task …” in the quick search, in the “New” menu and as a shortcut (Ctrl+Alt+Q, changeable under Settings → General → Shortcuts)
+- Pin favourites (★) – they come first; deleted tasks drop out by themselves
+- Dashboard tile with four buttons and their state
+- Error state with “Try again”; polling pauses while the page is not visible
+- Sits in the sidebar under “Develop” right after “Tasks”; other extensions may add tabs (`allowExtensions`)
 
 ## Install
 
@@ -32,6 +36,6 @@ node --test tests/*.test.js            # logic tests
 node path/to/hostwerk-public/sdk/check.js . --strict   # same check as the catalog
 ```
 
-The logic lives in `page/lib.js` (no DOM, tested), the page in `page/app.js`. A tag `vX.Y.Z` matching `manifest.json` publishes a release; the Hostwerk catalog picks it up.
+The logic lives in `page/lib.js` (no DOM, tested), polling and the error state in `page/live.js` (tested as well), the page in `page/app.js`. The release packs everything except the repository tooling (`.github/`, `tests/`). A tag `vX.Y.Z` matching `manifest.json` publishes a release; the Hostwerk catalog picks it up.
 
 Deutsch: [README.de.md](README.de.md) · License: MIT
