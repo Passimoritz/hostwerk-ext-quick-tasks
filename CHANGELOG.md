@@ -1,3 +1,8 @@
+## 1.5.0
+
+- Lives where it belongs: Tasks → Quick tasks, the “New” menu, the command palette and the dashboard tile – no own sidebar entry any more (Hostwerk 3.0+); the full page stays under Extensions → Open and can be pinned in the sidebar settings. / Steckt jetzt dort, wo sie hingehört: Aufgaben → Schnellaufgaben, Menü „Neu“, Schnellsuche und Übersichtskachel – kein eigener Seitenleisten-Eintrag mehr (Hostwerk 3.0+); die ganze Seite bleibt unter Erweiterungen → Öffnen und lässt sich in den Seitenleisten-Einstellungen anheften.
+- Needs Hostwerk 3.0 (the Tasks area takes tabs since SDK 3.2). / Braucht Hostwerk 3.0 (der Bereich Aufgaben nimmt Reiter erst seit SDK 3.2).
+
 ## 1.4.0
 
 - Pinned tasks show up one by one in the “New” menu (“Run task “Backup””) – with Hostwerk 3.0 (SDK 2.10 `host.setNewEntries`); choosing one runs that task right away (Hostwerk asks first). Needs a small own server part, hence the permission “native”. / Angeheftete Aufgaben einzeln im Menü „Neu“ („Aufgabe „Backup“ starten“) – ab Hostwerk 3.0; ein Klick startet sie (mit Rückfrage). Dafür ein kleiner eigener Server-Teil, deshalb das Recht „native“.

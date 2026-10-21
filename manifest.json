@@ -29,10 +29,7 @@
       "de": "Deine Aufgaben als große Knöpfe – ein Klick startet ein Backup, einen Bericht oder ein Skript (Hostwerk fragt vorher). Lieblinge anheften, auch als Kachel.",
       "en": "Your tasks as big buttons – one click runs a backup, a report or a script (Hostwerk asks first). Pin favourites, also as a tile."
     },
-    "nav": {
-      "group": "develop",
-      "after": "aufgaben"
-    }
+    "nav": false
   },
   "widget": {
     "title": {
@@ -42,13 +39,13 @@
     "file": "widget/index.html",
     "size": "third"
   },
-  "version": "1.4.0",
+  "version": "1.5.0",
   "author": "Hostwerk",
   "homepage": "https://github.com/Passimoritz/hostwerk-ext-quick-tasks",
   "license": "MIT",
   "icon": "icon.svg",
   "banner": "banner.svg",
-  "hostwerk": ">=2.11.0",
+  "hostwerk": ">=3.0.0",
   "contributes": {
     "actions": [
       {
@@ -87,11 +84,24 @@
         "keys": "ctrl+alt+q",
         "action": "run"
       }
+    ],
+    "tabs": [
+      {
+        "id": "quick",
+        "title": {
+          "de": "Schnellaufgaben",
+          "en": "Quick tasks"
+        },
+        "icon": "zap",
+        "on": "area:tasks",
+        "file": "page/index.html"
+      }
     ]
   },
   "allowExtensions": {
     "*": [
       "tabs"
     ]
-  }
+  },
+  "sdkVersion": "3.2"
 }

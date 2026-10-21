@@ -15,7 +15,7 @@ An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension
 - Pin favourites (★) – they come first, and from Hostwerk 3.0 each one is also in the “New” menu (“Run task “Backup””); deleted tasks drop out by themselves
 - Dashboard tile with four buttons and their state
 - Error state with “Try again”; polling pauses while the page is not visible
-- Sits in the sidebar under “Develop” right after “Tasks”; other extensions may add tabs (`allowExtensions`)
+- Lives in Tasks → Quick tasks (no own sidebar entry since 1.5); other extensions may add tabs (`allowExtensions`)
 
 ## Install
 

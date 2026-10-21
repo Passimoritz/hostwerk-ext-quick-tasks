@@ -15,7 +15,7 @@ Eine offizielle Erweiterung für [Hostwerk](https://github.com/Passimoritz/hostw
 - Lieblinge anheften (★) – sie stehen vorn und ab Hostwerk 3.0 auch einzeln im Menü „Neu“ („Aufgabe „Backup“ starten“); gelöschte Aufgaben fallen von selbst heraus
 - Kachel für die Übersicht mit vier Knöpfen und ihrem Zustand
 - Fehlerzustand mit „Erneut versuchen“; Abfragen pausieren, solange die Seite nicht zu sehen ist
-- Steht in der Seitenleiste unter „Entwickeln“ direkt hinter „Aufgaben“; andere Erweiterungen dürfen Reiter ergänzen (`allowExtensions`)
+- Steckt in Aufgaben → Schnellaufgaben (seit 1.5 ohne eigenen Seitenleisten-Eintrag); andere Erweiterungen dürfen Reiter ergänzen (`allowExtensions`)
 
 ## Installieren
 
