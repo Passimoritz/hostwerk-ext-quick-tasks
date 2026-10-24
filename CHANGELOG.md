@@ -1,3 +1,7 @@
+## 1.5.2
+
+- New animated icon and banner in the common Hostwerk style (isometric block). / Neues animiertes Symbol und Banner im gemeinsamen Hostwerk-Stil (isometrischer Block).
+
 ## 1.5.1
 
 - German texts use Hostwerk’s words (“Sicherung” instead of “Backup”). / Deutsche Texte mit Hostwerks Wörtern („Sicherung“ statt „Backup“).
