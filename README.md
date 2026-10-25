@@ -2,6 +2,8 @@
 
 # Quick tasks
 
+> **Merged into “One click” (extension `modes` 2.0):** the task buttons are now under Tasks → One click, favourites are Hostwerk’s star. Hostwerk installs “One click” by itself, turns the pinned ones into favourites and removes this extension. There are no new versions here.
+
 Your tasks as big buttons – one click runs a backup, a report or a script (Hostwerk asks first). Pin favourites, also as a tile.
 
 [Deutsch](README.de.md) · An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension (runs sandboxed, Hostwerk 3.0 or newer)

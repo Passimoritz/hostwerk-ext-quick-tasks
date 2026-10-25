@@ -2,6 +2,8 @@
 
 # Schnell-Aufgaben
 
+> **Aufgegangen in „Ein-Klick“ (Erweiterung `modes` 2.0):** Die Aufgaben-Knöpfe stehen jetzt unter Aufgaben → Ein-Klick, Lieblinge sind Hostwerks Stern. Hostwerk installiert „Ein-Klick“ von selbst, macht die angehefteten zu Favoriten und entfernt diese Erweiterung. Hier gibt es keine neuen Fassungen mehr.
+
 Deine Aufgaben als große Knöpfe – ein Klick startet ein Backup, einen Bericht oder ein Skript (Hostwerk fragt vorher). Lieblinge anheften, auch als Kachel.
 
 [English](README.md) · Offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erweiterung (läuft abgeschottet, ab Hostwerk 3.0)
