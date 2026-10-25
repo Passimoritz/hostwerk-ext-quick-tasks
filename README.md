@@ -4,9 +4,11 @@
 
 Your tasks as big buttons – one click runs a backup, a report or a script (Hostwerk asks first). Pin favourites, also as a tile.
 
-An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension.
+[Deutsch](README.de.md) · An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension (runs sandboxed, Hostwerk 3.0 or newer)
 
-## Features
+![Screenshot](docs/screenshot.png)
+
+## What it does
 
 - Every task as a big button – one click runs it (Hostwerk asks first)
 - The result right in the card: done or failed, duration, last line of the output
@@ -30,7 +32,7 @@ In Hostwerk: **Apps → Extensions → Marketplace** → “Quick tasks” → I
 
 Pages run isolated (own origin, no external scripts); anything that changes something asks you first.
 
-## Development
+## Develop
 
 ```bash
 node --test tests/*.test.js            # logic tests
@@ -40,3 +42,7 @@ node path/to/hostwerk-public/sdk/check.js . --strict   # same check as the catal
 The logic lives in `page/lib.js` (no DOM, tested), polling and the error state in `page/live.js` (tested as well), the page in `page/app.js`. The release packs everything except the repository tooling (`.github/`, `tests/`). A tag `vX.Y.Z` matching `manifest.json` publishes a release; the Hostwerk catalog picks it up.
 
 Deutsch: [README.de.md](README.de.md) · License: MIT
+
+## License
+
+MIT

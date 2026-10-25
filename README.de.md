@@ -4,9 +4,11 @@
 
 Deine Aufgaben als große Knöpfe – ein Klick startet ein Backup, einen Bericht oder ein Skript (Hostwerk fragt vorher). Lieblinge anheften, auch als Kachel.
 
-Eine offizielle Erweiterung für [Hostwerk](https://github.com/Passimoritz/hostwerk-public).
+[English](README.md) · Offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erweiterung (läuft abgeschottet, ab Hostwerk 3.0)
 
-## Funktionen
+![Bildschirmfoto](docs/screenshot.de.png)
+
+## Was sie kann
 
 - Jede Aufgabe als großer Knopf – ein Klick startet sie (Hostwerk fragt vorher)
 - Ergebnis direkt in der Karte: fertig oder fehlgeschlagen, Dauer, letzte Zeile der Ausgabe
@@ -30,7 +32,7 @@ In Hostwerk: **Apps → Erweiterungen → Marktplatz** → „Schnell-Aufgaben�
 
 Seiten laufen abgeschottet (eigener Ursprung, keine fremden Skripte); alles, was etwas ändert, fragt vorher nach.
 
-## Entwicklung
+## Entwickeln
 
 ```bash
 node --test tests/*.test.js            # Tests der Logik
@@ -40,3 +42,7 @@ node pfad/zu/hostwerk-public/sdk/check.js . --strict   # dieselbe Prüfung wie d
 Die Logik steckt in `page/lib.js` (ohne DOM, getestet), Abfragen und Fehlerzustand in `page/live.js` (ebenfalls getestet), die Seite in `page/app.js`. Das Release packt alles außer dem Repo-Werkzeug (`.github/`, `tests/`). Ein Tag `vX.Y.Z` passend zu `manifest.json` veröffentlicht ein Release; der Hostwerk-Katalog übernimmt es.
 
 English: [README.md](README.md) · Lizenz: MIT
+
+## Lizenz
+
+MIT
